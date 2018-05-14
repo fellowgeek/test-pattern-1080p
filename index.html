@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Pattern</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('clock').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+
+<body onload="startTime()">
+
+    <div class="container">
+
+        <div class="circle">
+        </div>
+
+        <div class="corner tl">
+            <div class="circle"></div>
+            <div class="vertical"></div>
+            <div class="horizontal"></div>
+        </div>
+
+        <div class="corner tr">
+            <div class="circle"></div>
+            <div class="vertical"></div>
+            <div class="horizontal"></div>
+        </div>
+
+        <div class="corner br">
+            <div class="circle"></div>
+            <div class="vertical"></div>
+            <div class="horizontal"></div>
+        </div>
+
+        <div class="corner bl">
+            <div class="circle"></div>
+            <div class="vertical"></div>
+            <div class="horizontal"></div>
+        </div>
+
+        <div class="grid">
+            <div class="grid-main">
+            </div>
+            <div class="grid-right">
+            </div>
+            <div class="grid-bottom">
+            </div>
+        </div>
+
+        <div class="color color-white"></div>
+        <div class="color color-yellow"></div>
+        <div class="color color-cyan"></div>
+        <div class="color color-green"></div>
+        <div class="color color-magenta"></div>
+        <div class="color color-red"></div>
+        <div class="color color-blue"></div>
+        <div class="color color-black"></div>
+
+        <div class="caption">
+            <div id="clock"></div>
+        </div>
+
+    </div>
+
+    <audio loop autoplay>
+            <source src="audio/greensleeves.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>

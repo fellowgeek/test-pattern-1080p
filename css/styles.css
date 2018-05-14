@@ -1,0 +1,205 @@
+:root {
+    --background-color: #000000;
+    --circle-color: #8c8c8c;
+    --grid-color: #ffffff;
+    --grid-thickness: 2px;
+
+    --color-white: #ffffff;
+    --color-yellow: #ffff15;
+    --color-cyan: #0affff;
+    --color-green: #00ff00;
+    --color-magenta: #ff00ff;
+    --color-red: #f60400;
+    --color-blue: #0500f1;
+    --color-black: #000000;
+}
+
+body {
+    margin: 0px;
+    background: var(--background-color);
+    width: 1920px;
+    height: 1080px;
+}
+
+audio {
+    display: none;
+}
+
+.relative {
+    position: relative;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 540px;
+    background: var(--circle-color);
+    width: calc(1080px - (2 * var(--grid-thickness)));
+    height: calc(1080px - (2 * var(--grid-thickness)));
+}
+
+.grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1080px;
+    height: 1080px;
+}
+
+.grid-main {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-size: 108px 108px;
+    background-image:
+        linear-gradient(to right, var(--grid-color) var(--grid-thickness), transparent var(--grid-thickness)),
+        linear-gradient(to bottom, var(--grid-color) var(--grid-thickness), transparent var(--grid-thickness));
+    width: 972px;
+    height: 972px;
+}
+
+.grid-right {
+    position: absolute;
+    top: 0px;
+    left: 972px;
+    background-size: 108px 108px;
+    background-image:
+        linear-gradient(to right, var(--grid-color) var(--grid-thickness), transparent var(--grid-thickness)),
+        linear-gradient(to left, var(--grid-color) var(--grid-thickness), transparent var(--grid-thickness)),
+        linear-gradient(to bottom, var(--grid-color) var(--grid-thickness), transparent var(--grid-thickness));
+    width: 108px;
+    height: 1080px;
+}
+
+.grid-bottom {
+    position: absolute;
+    top: 972px;
+    left: 0px;
+
+    background-size: 108px 108px;
+    background-image:
+        linear-gradient(to right, var(--grid-color) var(--grid-thickness), transparent var(--grid-thickness)),
+        linear-gradient(to top, var(--grid-color) var(--grid-thickness), transparent var(--grid-thickness)),
+        linear-gradient(to bottom, var(--grid-color) var(--grid-thickness), transparent var(--grid-thickness));
+    width: 1080px;
+    height: 108px;
+}
+
+.corner {
+    position: absolute;
+    border: var(--grid-thickness) solid var(--grid-color);
+    width: calc(216px - (2 * var(--grid-thickness)));
+    height: calc(216px - (2 * var(--grid-thickness)));
+}
+
+.corner .circle {
+    border-radius: 540px;
+    background-color: var(--circle-color);
+    width: calc(216px - (2 * var(--grid-thickness)));
+    height: calc(216px - (2 * var(--grid-thickness)));
+}
+
+.tl {
+    top: 0px;
+    left: 0px;
+}
+
+.tr {
+    top: 0px;
+    right: 0px;
+}
+
+.br {
+    bottom: 0px;
+    right: 0px;
+}
+
+.bl {
+    bottom: 0px;
+    left: 0px;
+}
+
+.vertical {
+    position: absolute;
+    top: calc(108px - (2 * var(--grid-thickness)));
+    background-color: var(--grid-color);
+    width: calc(216px - (2 * var(--grid-thickness)));
+    height: var(--grid-thickness);
+}
+
+.horizontal {
+    position: absolute;
+    left: calc(108px - (2 * var(--grid-thickness)));
+    background-color: var(--grid-color);
+    width: var(--grid-thickness);
+    height: calc(216px - (2 * var(--grid-thickness)));
+}
+
+.color {
+    position: absolute;
+    top: 540px;
+    width: 108px;
+    height: 324px;
+}
+
+.color-white {
+    left: calc(528px + var(--grid-thickness));
+    background-color: var(--color-white);
+}
+.color-yellow {
+    left: calc(636px + var(--grid-thickness));
+    background-color: var(--color-yellow);
+}
+.color-cyan {
+    left: calc(744px + var(--grid-thickness));
+    background-color: var(--color-cyan);
+}
+.color-green {
+    left: calc(852px + var(--grid-thickness));
+    background-color: var(--color-green);
+}
+.color-magenta {
+    left: calc(960px + var(--grid-thickness));
+    background-color: var(--color-magenta);
+}
+
+.color-red {
+    left: calc(1068px + var(--grid-thickness));
+    background-color: var(--color-red);
+}
+
+.color-blue {
+    left: calc(1176px + var(--grid-thickness));
+    background-color: var(--color-blue);
+}
+
+.color-black {
+    left: calc(1284px + var(--grid-thickness));
+    background-color: var(--color-black);
+}
+
+.caption {
+    position: absolute;
+    top: 326px;
+    left: 746px;
+    text-align: center;
+    background-color: var(--background-color);
+    width: 430px;
+    height: 106px;
+}
+
+#clock {
+    padding: 20px;
+    font-size: 50px;
+    font-family: monospace;
+    color: var(--color-white);
+}
