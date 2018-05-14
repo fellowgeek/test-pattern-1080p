@@ -198,8 +198,27 @@ audio {
 }
 
 #clock {
-    padding: 20px;
-    font-size: 50px;
-    font-family: monospace;
+    padding: 8px 0px 0px 0px;
+    font-size: 80px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
     color: var(--color-white);
+}
+
+.information {
+    position: absolute;
+    top: 470px;
+    left: 530px;
+    text-align: center;
+    background-color: var(--background-color);
+    width: 862px;
+    height: 35px;
+}
+
+#network {
+    color: #fff;
+    font-size: 15px;
+    font-family: monospace;
+    text-transform: uppercase;
+    padding: 8px 0px 0px 0px;
 }

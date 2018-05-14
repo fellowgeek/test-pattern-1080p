@@ -6,24 +6,6 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<script>
-    function startTime() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        m = checkTime(m);
-        s = checkTime(s);
-        document.getElementById('clock').innerHTML =
-        h + ":" + m + ":" + s;
-        var t = setTimeout(startTime, 500);
-    }
-    function checkTime(i) {
-        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-        return i;
-    }
-</script>
-
 <body onload="startTime()">
 
     <div class="container">
@@ -77,11 +59,53 @@
             <div id="clock"></div>
         </div>
 
+        <div class="information">
+            <div id="network"></div>
+        </div>
+
     </div>
 
     <audio loop autoplay>
             <source src="audio/greensleeves.mp3" type="audio/mpeg">
     </audio>
+
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('clock').innerHTML =
+            h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 1000);
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};
+            return i;
+        }
+
+        setInterval(() => {
+            fetch('pi.json')
+            .then(function($response) {
+                return $response.json();
+            })
+            .then(function($json) {
+                document.getElementById('network').innerHTML =
+                `
+                LAN: ${($json.lanIP ? $json.lanIP : 'NC')}
+                -
+                ${($json.lanMAC ? $json.lanMAC : '')}
+                -
+                WIFI: ${($json.wifiIP ? $json.wifiIP : 'NC')}
+                -
+                ${($json.wifiMAC ? $json.wifiMAC : '')}
+                `;
+            });
+        }, 5000);
+    </script>
+
 </body>
 
 </html>
